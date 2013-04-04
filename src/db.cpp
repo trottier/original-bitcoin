@@ -454,6 +454,10 @@ bool CAddrDB::LoadAddresses()
         foreach(const PAIRTYPE(vector<unsigned char>, CAddress)& item, mapAddresses)
             item.second.print();
         printf("-----\n");
+
+        // Fix for possible GCC bug that manifests in mapAddresses.count in irc.cpp,
+        // just need to call count here and it doesn't happen there, do not delete this!
+        mapAddresses.count(vector<unsigned char>(18));
     }
 
     return true;

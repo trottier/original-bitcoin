@@ -26,6 +26,7 @@ extern string DateTimeStr(int64 nTime);
 extern string FormatTxStatus(const CWalletTx& wtx);
 extern void CrossThreadCall(int nID, void* pdata);
 extern void MainFrameRepaint();
+extern void Shutdown(void* parg);
 
 
 

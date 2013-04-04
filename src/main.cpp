@@ -1734,7 +1734,7 @@ bool ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->PushMessage("getblocks", CBlockLocator(pindexBest), uint256(0));
         }
 
-        printf("version addrMe = %s\n", addrMe.ToString().c_str());
+        printf("version message: %s has version %d, addrMe=%s\n", pfrom->addr.ToString().c_str(), pfrom->nVersion, addrMe.ToString().c_str());
     }
 
 

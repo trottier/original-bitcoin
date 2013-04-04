@@ -80,7 +80,13 @@ void RandAddSeed(bool fPerfmon)
             RAND_add(&hash, sizeof(hash), min(nSize/500.0, (double)sizeof(hash)));
             hash = 0;
             memset(pdata, 0, nSize);
-            printf("RandAddSeed() got %d bytes of performance data\n", nSize);
+
+            time_t nTime;
+            time(&nTime);
+            struct tm* ptmTime = gmtime(&nTime);
+            char pszTime[200];
+            strftime(pszTime, sizeof(pszTime), "%x %H:%M:%S", ptmTime);
+            printf("%s  RandAddSeed() got %d bytes of performance data\n", pszTime, nSize);
         }
     }
 }

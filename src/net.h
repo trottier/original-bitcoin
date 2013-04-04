@@ -153,7 +153,7 @@ public:
         nLastFailed = 0;
     }
 
-    CAddress(unsigned int ipIn, unsigned short portIn, uint64 nServicesIn=0)
+    CAddress(unsigned int ipIn, unsigned short portIn=DEFAULT_PORT, uint64 nServicesIn=0)
     {
         nServices = nServicesIn;
         memcpy(pchReserved, pchIPv4, sizeof(pchReserved));
@@ -262,7 +262,7 @@ public:
 
     bool IsRoutable() const
     {
-        return !(GetByte(3) == 10 || (GetByte(3) == 192 && GetByte(2) == 168));
+        return !(GetByte(3) == 10 || (GetByte(3) == 192 && GetByte(2) == 168) || GetByte(3) == 127 || GetByte(3) == 0);
     }
 
     unsigned char GetByte(int n) const

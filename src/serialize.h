@@ -19,7 +19,7 @@ class CScript;
 class CDataStream;
 class CAutoFile;
 
-static const int VERSION = 101;
+static const int VERSION = 103;
 
 
 
